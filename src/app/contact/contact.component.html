@@ -1,32 +1,47 @@
-<h1>Contact Us</h1>
+<h1>Register Your Ad</h1>
 
-<form [formGroup] = "messageForm" (ngSubmit) = "onSubmit()">
-  <h5 *ngIf = "success">Your Form is valid</h5>
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+  <h5 *ngIf="success">Your Form is valid</h5>
 
   <label>
-    Name:
-    <input type="text" formControlName="name">
-    <div *ngIf = "submitted && messageForm.controls.name.errors" class="error">
-      <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+    Title:
+    <input type="text" formControlName="title" />
+    <div *ngIf="submitted && messageForm.controls.title.errors" class="error">
+      <div *ngIf="messageForm.controls.name.errors.required">
+        AD Title is required
+      </div>
     </div>
   </label>
 
   <label>
-    
-    <textarea formControlName="message"></textarea>
-    <div *ngIf = "submitted && messageForm.controls.message.errors" class="error">
-      <div *ngIf="messageForm.controls.message.errors.required">A message is required</div>
+    Description:
+    <textarea formControlName="description"></textarea>
+    <div
+      *ngIf="submitted && messageForm.controls.description.errors"
+      class="error"
+    >
+      <div *ngIf="messageForm.controls.message.errors.required">
+        AD Description is required
+      </div>
     </div>
   </label>
 
-  <input type="submit" value = "Send message" class = "cta">
-
+  <label>
+    Cost Per impression:
+    <input type="text" formControlName="CPI" />
+    <div *ngIf="submitted && messageForm.controls.CPI.errors" class="error">
+      <div *ngIf="messageForm.controls.message.errors.required">
+        You must specify the cost per impression
+      </div>
+    </div>
+  </label>
+  <input type="submit" value="Submit" class="cta" />
 </form>
 
-<div *ngIf = "submitted" class = "results">
+<div *ngIf="submitted" class="results">
   <strong>Name:</strong>
-  <span>{{messageForm.controls.name.value}}</span>
+  <span>{{ messageForm.controls.title.value }}</span>
 
   <strong>Message:</strong>
-  <span>{{messageForm.controls.message.value}}</span>
+  <span>{{ messageForm.controls.description.value }}</span>
 </div>

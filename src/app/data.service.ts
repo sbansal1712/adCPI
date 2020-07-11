@@ -1,15 +1,29 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { switchMap, catchError } from "rxjs/operators";
+import { of, throwError } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class DataService {
- 
+  //apiUrl = "http://localhost:5000/";
+  apiUrl = "https://ad-management.herokuapp.com/";
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  getUsers(){
-    return this.http.get('https://reqres.in/api/users')
+  getAllAds() {
+    return this.http.get(`${this.apiUrl}getAllAds`);
+  }
+  addNewAd(ad: any) {
+    return this.http.post(`${this.apiUrl}addNewAd`, ad).pipe(
+      switchMap((savedAd: any) => {
+        //alert("User created successfully");
+        return of(savedAd);
+      }),
+      catchError((ex: any) => {
+        console.log(`server error occured`, ex);
+        return throwError(`AD Creation failed, please contact to admin`);
+      })
+    );
   }
 }

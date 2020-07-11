@@ -118,6 +118,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng7"
+    }
+  },
+  "defaultProject": "ng7",
+  "cli": {
+    "analytics": false
+  }
 }

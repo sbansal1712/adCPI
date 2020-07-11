@@ -1,5 +1,5 @@
 {
-  "name": "ng7",
+  "name": "adCPI",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -29,7 +29,7 @@
     "tslib": "^1.9.0",
     "typescript": "~3.4.3",
     "zone.js": "~0.9.1",
-    "body-parser":"*"
+    "body-parser": "*"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.800.0",

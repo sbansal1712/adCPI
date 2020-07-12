@@ -12,7 +12,7 @@ export class RegisterADComponent implements OnInit {
   messageForm: FormGroup;
   submitted = false;
   success = false;
-  ads: Object;
+  ads: any;
   minPrice: any;
 
   constructor(
@@ -34,7 +34,7 @@ export class RegisterADComponent implements OnInit {
   getAllAds() {
     this.dataService.getAllAds().subscribe((data) => {
       this.ads = data;
-      this.minPrice = this.ads[1].CPI;
+      this.minPrice = this.ads[this.ads.length - 1].CPI;
       this.minPrice = this.minPrice + 1;
     });
   }

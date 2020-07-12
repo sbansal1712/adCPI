@@ -26,4 +26,7 @@ export class DataService {
       })
     );
   }
+  recordClicks(id: any) {
+    return this.http.get(`${this.apiUrl}recordClicks?id=${id}`);
+  }
 }

@@ -1,0 +1,49 @@
+<form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+  <h5 *ngIf="success">Your Form is valid</h5>
+  <mat-form-field appearance="outline" class="form-control">
+    <mat-label> Title:</mat-label>
+    <input matInput type="text" formControlName="Title" />
+    <div *ngIf="submitted && messageForm.controls.Title.errors" class="error">
+      <div *ngIf="messageForm.controls.Title.errors.required">
+        AD Title is required
+      </div>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-control">
+    <mat-label> Description: </mat-label>
+    <textarea matInput formControlName="Description"></textarea>
+    <div
+      *ngIf="submitted && messageForm.controls.Description.errors"
+      class="error"
+    >
+      <div *ngIf="messageForm.controls.Description.errors.required">
+        AD Description is required
+      </div>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-control">
+    <mat-label> Cost Per impression (INR): </mat-label>
+    <input matInput type="number" step="100" min="500" formControlName="CPI" />
+    <mat-hint
+      >Current Minimum bid to get Your ad featured : {{ minPrice }}</mat-hint
+    >
+
+    <div *ngIf="submitted && messageForm.controls.CPI.errors" class="error">
+      <div *ngIf="messageForm.controls.message.errors.required">
+        You must specify the cost per impression
+      </div>
+    </div>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="form-control">
+    <mat-label> Website: </mat-label>
+    <input matInput type="url" formControlName="Website" />
+    <div *ngIf="submitted && messageForm.controls.Website.errors" class="error">
+      <div *ngIf="messageForm.controls.Website.errors.required">
+        Website link is required
+      </div>
+    </div>
+  </mat-form-field>
+  <input type="submit" value="Submit" class="cta" />
+</form>

@@ -16,4 +16,9 @@ export class HomeComponent implements OnInit {
       console.log(this.ads);
     });
   }
+  goToWebsite(ad: any) {
+    this.data.recordClicks(ad._id).subscribe((data: any) => {
+      window.open(ad.Website);
+    });
+  }
 }

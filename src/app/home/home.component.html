@@ -1,7 +1,23 @@
 <h1>Advertisments</h1>
 
-<ul *ngIf="ads">
+<!-- <ul style="width: 100%;" *ngIf="ads">
   <li *ngFor="let ad of ads">
-    <p>{{ ad.title }} {{ ad.description }}</p>
+    <img src="assets/media.png" />
+    <p>{{ ad.title }}</p>
+    <span style="width: 100%;">{{ ad.description }}</span>
   </li>
-</ul>
+</ul> -->
+
+<div *ngFor="let ad of ads">
+  <mat-card (click)="goToWebsite(ad)" class="ad-card">
+    <mat-card-header>
+      <mat-card-title>{{ ad.Title }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="assets/media.png" />
+    <mat-card-content>
+      <p>
+        {{ ad.Description }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

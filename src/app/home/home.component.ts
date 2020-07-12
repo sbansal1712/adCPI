@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.data.getAllAds().subscribe((data) => {
       this.ads = data;
-      console.log(this.ads);
     });
   }
   goToWebsite(ad: any) {

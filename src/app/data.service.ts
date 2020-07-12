@@ -7,8 +7,8 @@ import { of, throwError } from "rxjs";
   providedIn: "root",
 })
 export class DataService {
-  apiUrl = "http://localhost:5000/";
-  //apiUrl = "https://ad-management.herokuapp.com/";
+  //apiUrl = "http://localhost:5000/";
+  apiUrl = "https://ad-management.herokuapp.com/";
   constructor(private http: HttpClient) {}
 
   getAllAds() {
